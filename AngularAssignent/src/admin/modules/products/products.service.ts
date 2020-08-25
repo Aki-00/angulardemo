@@ -12,10 +12,17 @@ export class ProductService {
   private headers = {headers: {'Content-Type': 'application/json'}};
 
   constructor(private http: HttpClient, private fr:AngularFirestore) { }
-
+  
   getProducts(){
-    return this.fr.collection('product').snapshotChanges();
+    return this.fr.collection("products").snapshotChanges();
   }
+
+  createProduct(product: Product){
+    return this.fr.collection('products').add(product);
+  }
+
+  
+
 
   // getProducts(){
   //   return this.http.get(`${this.url}/products`, this.headers);

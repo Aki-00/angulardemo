@@ -13,6 +13,7 @@ export class AdminProductDetailComponent implements OnInit {
   constructor(private productService:ProductService, private router:ActivatedRoute) { }
 
   product:Product
+  products:Product[]
   
   ngOnInit(): void {
     this.router.params.subscribe((res: any) => {
@@ -23,12 +24,23 @@ export class AdminProductDetailComponent implements OnInit {
 
       // });
       
-      
-      this.productService.getProducts().subscribe((res:any)=>{
-        const product = res.filter(x => x.id==id)[0];
-          this.product = product;
+      this.productService.getProducts().subscribe((res: any) => {
+        console.log(res);
+        this.products = res.map( e =>{
+          return {
+            id: e.payload.doc.id,
+            ...e.payload.doc.data()
+          } as Product;   
+        })
+        
+        this.product = this.products.filter(x=> x.id==id)[0];
+    });
+
+      // this.productService.getProducts().subscribe((res:any)=>{
+      //   const product = res.filter(x => x.id==id)[0];
+      //     this.product = product;
   
-      });
+      // });
       
     
     })

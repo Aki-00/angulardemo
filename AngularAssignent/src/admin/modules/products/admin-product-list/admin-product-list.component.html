@@ -17,10 +17,10 @@
     <tbody>
         <tr *ngFor = 'let product of products'>
         <th scope="row">{{product.id}}</th>
-        <td>{{product.titile}}</td>
+        <td>{{product.title}}</td>
         <td>{{product.finalPrice}}</td>
         <td>{{product.publisher}}</td>
-        <!-- <td>
+        <td>
             <ul appBorderColor class="list-inline m-0">
                 <li class="list-inline-item">
                     <a [routerLink]="['detail', product.id]"><button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-table"></i></button></a>
@@ -34,7 +34,7 @@
             </ul>
             <a [routerLink]="['/detail', product.id]" data-tip="Quick View"><i class="fa fa-search"></i></a>
             <a routerLink="addproduct" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a>
-        </td> -->
+        </td>
       </tr>
     </tbody>
   </table>

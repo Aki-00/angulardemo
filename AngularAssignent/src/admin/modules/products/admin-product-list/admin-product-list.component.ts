@@ -18,9 +18,12 @@ export class AdminProductListComponent implements OnInit {
       this.products = res.map( e =>{
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.res()
+          ...e.payload.doc.data()
         } as Product;
       })
   });
+
   }
+
+  
 }
