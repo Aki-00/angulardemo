@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Router } from  "@angular/router";
 import { auth } from  'firebase/app';
 import { AngularFireAuth } from  "@angular/fire/auth";
-import { User } from  'firebase';
+import { User,  } from  'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user : User;
+  logined: false
 
   constructor(public  afAuth:  AngularFireAuth, public  router:  Router) { 
     this.afAuth.authState.subscribe(user => {
@@ -26,18 +27,28 @@ export class AuthService {
     this.router.navigate(['admin/products']);
 }
 
-isLogin():boolean{
+isLogined():boolean{
+  var user = this.afAuth.currentUser;
 
-  var user = firebase.auth().currentUser;
-
-  this.afAuth.authState
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-    } else {
-      // No user is signed in.
-    }
-  });
+  if (user !=null){
+    return true
+  }else{
+    return false
+  }
+  // this.afAuth.onAuthStateChanged(function(user) {
+  //   if (user) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // });
 
 }
+
+async logout() {
+  return this.afAuth.signOut().then(() => {
+    this.router.navigate(['login']);
+  })
+}
+
 }

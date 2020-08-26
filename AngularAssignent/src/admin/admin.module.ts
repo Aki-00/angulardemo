@@ -9,10 +9,11 @@ import { DefaultLayoutComponent } from './containers/default-layout.component';
 import { LoginFormComponent } from './auth/login-form/login-form.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 
 @NgModule({
-  declarations: [BorderColorDirective, HeaderComponent, FooterComponent, DefaultLayoutComponent, LoginFormComponent],
+  declarations: [BorderColorDirective, HeaderComponent, FooterComponent, DefaultLayoutComponent, LoginFormComponent, LogoutComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
