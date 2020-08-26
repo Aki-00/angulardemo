@@ -7,10 +7,11 @@ import { AdminProductListComponent } from './admin-product-list/admin-product-li
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 import { AdminProductTableComponent } from './admin-product-table/admin-product-table.component';
 import { ProductReactiveFormComponent } from './product-reactive-form/product-reactive-form.component';
+import { AdminProductUpdateComponent } from './admin-product-update/admin-product-update.component';
 
 
 @NgModule({
-  declarations: [AdminProductListComponent, AdminProductDetailComponent, AdminProductTableComponent, ProductReactiveFormComponent],
+  declarations: [AdminProductListComponent, AdminProductDetailComponent, AdminProductTableComponent, ProductReactiveFormComponent, AdminProductUpdateComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,

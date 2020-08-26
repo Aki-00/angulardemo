@@ -26,14 +26,14 @@
                     <a [routerLink]="['detail', product.id]"><button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-table"></i></button></a>
                 </li>
                 <li class="list-inline-item">
-                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                  <a [routerLink]="['update', product.id]"><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
                 </li>
                 <li class="list-inline-item">
-                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" (click)="deleteProduct(product.id)"><i class="fa fa-trash"></i></button>
                 </li>
             </ul>
-            <a [routerLink]="['/detail', product.id]" data-tip="Quick View"><i class="fa fa-search"></i></a>
-            <a routerLink="addproduct" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a>
+            <!-- <a [routerLink]="['/detail', product.id]" data-tip="Quick View"><i class="fa fa-search"></i></a>
+            <a routerLink="addproduct" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a> -->
         </td>
       </tr>
     </tbody>

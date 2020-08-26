@@ -25,5 +25,8 @@ export class AdminProductListComponent implements OnInit {
 
   }
 
+  deleteProduct(id: string) {
+    this.productService.deleteProduct(id);
+  }
   
 }
