@@ -81,9 +81,9 @@ handleUpdateProduct(){
 
   console.log(product);
 
-  this.productService.updateProduct(product);
-     this._router.navigateByUrl('/admin/products');
-   
+  this.productService.updateProduct(product).then(res=>{
+    this._router.navigateByUrl('/admin/products');
+  });  
   };
 
 resetForm(){

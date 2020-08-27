@@ -9,14 +9,16 @@ import { User,  } from  'firebase';
 })
 export class AuthService {
   user : User;
-  logined: false
+  private _isLogined: boolean;
 
   constructor(public  afAuth:  AngularFireAuth, public  router:  Router) { 
     this.afAuth.authState.subscribe(user => {
       if (user){
         this.user = user;
+        this._isLogined = true;
         localStorage.setItem('user', JSON.stringify(this.user));
       } else {
+        this._isLogined = false;
         localStorage.setItem('user', null);
       }
     })
@@ -27,14 +29,18 @@ export class AuthService {
     this.router.navigate(['admin/products']);
 }
 
-isLogined():boolean{
-  var user = this.afAuth.currentUser;
 
-  if (user !=null){
-    return true
-  }else{
-    return false
-  }
+get isLogined():boolean{
+  
+  return this._isLogined;
+  
+  // var user = this.afAuth.currentUser;
+
+  // if (user !=null){
+  //   return true
+  // }else{
+  //   return false
+  // }
   // this.afAuth.onAuthStateChanged(function(user) {
   //   if (user) {
   //     return true;

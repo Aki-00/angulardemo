@@ -11,8 +11,8 @@ import { AngularFireModule} from '@angular/fire';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { environment} from '../environments/environment';
 import { AngularFirestoreModule} from '@angular/fire/firestore'
-import { AuthService } from 'src/admin/auth/auth.service';
-import { AuthGuardService} from '../admin/auth/auth-guard.service'
+import { AuthService } from '../admin/auth/auth.service';
+import { AuthGuard} from '../admin/auth/auth.guard'
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { AuthGuardService} from '../admin/auth/auth-guard.service'
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -3,22 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule} from '@angular/common'
 import { DefaultLayoutComponent } from '../admin/containers/default-layout.component';
 import { LoginFormComponent } from '../admin/auth/login-form/login-form.component';
-import { AuthGuardService} from '../admin/auth/auth-guard.service'
-import { LogoutComponent } from 'src/admin/auth/logout/logout.component';
+import { AuthGuard} from '../admin/auth/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '', 
-    redirectTo: 'login', 
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '', 
+  //   redirectTo: 'login', 
+  //   pathMatch: 'full'
+  // },
   {
       path:'',
       component: DefaultLayoutComponent,
-      canActivate: [AuthGuardService],
+      canActivate: [AuthGuard],
       children:[
         {
           path:'admin',
+          // canActivateChild:[AuthGuard],
           loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule)
         }
       ]
@@ -26,10 +26,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginFormComponent
-  },
-  {
-    path:'logout',
-    component: LogoutComponent
   }
   
 ];

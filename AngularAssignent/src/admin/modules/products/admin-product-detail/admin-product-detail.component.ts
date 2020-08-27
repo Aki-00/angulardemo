@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../products.service';
 import { Product } from '../../../models/product';
 import { ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-product-detail',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminProductDetailComponent implements OnInit {
 
-  constructor(private productService:ProductService, private router:ActivatedRoute) { }
+  constructor(private productService:ProductService, private router:ActivatedRoute, private _router:Router) { }
 
   product:Product
   products:Product[]
@@ -44,6 +45,13 @@ export class AdminProductDetailComponent implements OnInit {
       
     
     })
+  }
+
+  onDelete(){
+    this.productService.deleteProduct(this.product.id);
+    this._router.navigateByUrl('/admin/products');
+    console.log(this.product.id)
+
   }
 
 }

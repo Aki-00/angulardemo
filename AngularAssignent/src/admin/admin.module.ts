@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './auth/logout/logout.component';
 
 
+
 @NgModule({
   declarations: [BorderColorDirective, HeaderComponent, FooterComponent, DefaultLayoutComponent, LoginFormComponent, LogoutComponent],
   imports: [
@@ -19,6 +20,8 @@ import { LogoutComponent } from './auth/logout/logout.component';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
   ]
 })
 export class AdminModule { }
