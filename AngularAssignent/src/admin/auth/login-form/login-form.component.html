@@ -10,7 +10,7 @@
                             <label for="username" class="text-info">Email:</label><br>
                             <input type="text" formControlName="email" [ngClass]="{'has-error': loginForm.get('email').invalid && loginForm.get('email').touched}" id="email" class="form-control">
                             <li *ngIf="loginForm.get('email').value.length == 0 && loginForm.get('email').touched" class="text text-danger">Email Is Required</li>
-                            <li *ngIf="loginForm.get('email').errors.email && loginForm.get('email').touched" class="text text-danger">Email Is Not Right Format</li>
+                            <li *ngIf="loginForm.get('email').errors?.email && loginForm.get('email').touched" class="text text-danger">Email Is Not Right Format</li>
                        </div>
                         <div class="form-group">
                             <label for="password" class="text-info">Password:</label><br>

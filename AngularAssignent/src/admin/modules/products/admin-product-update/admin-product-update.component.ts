@@ -28,11 +28,12 @@ export class AdminProductUpdateComponent implements OnInit {
   updateProductForm:FormGroup;
   product:Product;
   products:Product[];
+  private id:string;
 
   ngOnInit(): void {
     this.router.params.subscribe((res: any) => {
       console.log(res);
-      const id = res.id;
+       this.id = res.id;
       
       this.productService.getProducts().subscribe((res: any) => {
         console.log(res);
@@ -43,7 +44,7 @@ export class AdminProductUpdateComponent implements OnInit {
           } as Product;   
         })
         
-        this.product = this.products.filter(x=> x.id==id)[0];
+        this.product = this.products.filter(x=> x.id==this.id)[0];
 
         this.updateProductForm.setValue({
   
@@ -71,6 +72,7 @@ handleUpdateProduct(){
   // console.log(this.updateProductForm.get('imageURL').value);
 
   const product:Product ={
+    id: this.id,
     title: this.updateProductForm.get('title').value,
     author: this.updateProductForm.get('author').value,
     publisher: this.updateProductForm.get('publisher').value,
@@ -80,6 +82,7 @@ handleUpdateProduct(){
   }
 
   console.log(product);
+  console.log(product.id);
 
   this.productService.updateProduct(product).then(res=>{
     this._router.navigateByUrl('/admin/products');

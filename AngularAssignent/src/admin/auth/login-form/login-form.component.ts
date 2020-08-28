@@ -27,10 +27,11 @@ export class LoginFormComponent implements OnInit {
     console.log(email);
     console.log(password);
 
-    this.authService.login(email, password).then(res=>{
+    this.authService.login(email, password)
+    .then(res=>{
       console.log(res);
     }
-      )
+      );
 
   }
 

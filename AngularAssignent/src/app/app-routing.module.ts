@@ -4,6 +4,7 @@ import { CommonModule} from '@angular/common'
 import { DefaultLayoutComponent } from '../admin/containers/default-layout.component';
 import { LoginFormComponent } from '../admin/auth/login-form/login-form.component';
 import { AuthGuard} from '../admin/auth/auth.guard';
+import { AdminAuthGuard} from '../admin/auth/admin-auth.guard';
 
 const routes: Routes = [
   // {
@@ -14,7 +15,7 @@ const routes: Routes = [
   {
       path:'',
       component: DefaultLayoutComponent,
-      canActivate: [AuthGuard],
+      canActivate: [AuthGuard, AdminAuthGuard],
       children:[
         {
           path:'admin',
